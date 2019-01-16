@@ -1,0 +1,21 @@
+{
+  "name": "nodeiflux-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://gitlab.com/enitoni/nodeiflux-bot.git",
+  "author": "Enitoni <enitoni@email.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@enitoni/gears": "^2.3.3",
+    "@enitoni/gears-discordjs": "^1.1.1",
+    "discord.js": "^11.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
+  }
+}
