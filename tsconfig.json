@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "lib": ["esnext"],
-    "target": "es5",
+    "target": "es6",
     "resolveJsonModule": true
   }
 }
