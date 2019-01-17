@@ -7,9 +7,11 @@ import { handleError } from "./modules/core/middleware"
 
 /** Services */
 import { ResponseService } from "./modules/response/services"
+import { AutobanService } from "./modules/autoban/services"
 
 /** Groups */
 import { responseGroup } from "./modules/response/groups"
+import { autobanGroup } from "./modules/autoban/groups"
 
 const adapter = new Adapter({
   token: config.discord.token
@@ -18,11 +20,11 @@ const adapter = new Adapter({
 const group = new CommandGroup({
   matcher: matchPrefixes("!"),
   middleware: [handleError],
-  commands: [responseGroup]
+  commands: [responseGroup, autobanGroup]
 })
 
 const bot = new Bot({
-  services: [ResponseService],
+  services: [ResponseService, AutobanService],
   adapter,
   group
 })
