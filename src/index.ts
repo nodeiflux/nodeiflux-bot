@@ -10,9 +10,10 @@ import { ResponseService } from "./modules/response/services"
 import { AutobanService } from "./modules/autoban/services"
 import { JobAutomodService } from "./modules/jobs/services"
 
-/** Groups */
+/** Groups and Commands */
 import { responseGroup } from "./modules/response/groups"
 import { autobanGroup } from "./modules/autoban/groups"
+import { aboutCommand } from "./modules/core/commands"
 
 const adapter = new Adapter({
   token: config.discord.token
@@ -21,7 +22,7 @@ const adapter = new Adapter({
 const group = new CommandGroup({
   matcher: matchPrefixes("!"),
   middleware: [handleError],
-  commands: [responseGroup, autobanGroup]
+  commands: [responseGroup, autobanGroup, aboutCommand]
 })
 
 const bot = new Bot({
