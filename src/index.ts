@@ -35,4 +35,11 @@ bot.on("error", err => {
   console.log("Error", err)
 })
 
-bot.start()
+async function init() {
+  await bot.start()
+  await bot.client.user.setActivity("use !about or !r help")
+
+  console.info("Bot running.")
+}
+
+init()
