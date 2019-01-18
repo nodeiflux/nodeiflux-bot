@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "Nodeiflux Bot",
-      "script": "yarn.js",
+      "script": "yarn",
       "args": "start:prod",
       "env": {
         "NODE_ENV": "development"
