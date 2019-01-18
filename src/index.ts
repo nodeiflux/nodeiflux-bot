@@ -8,6 +8,7 @@ import { handleError } from "./modules/core/middleware"
 /** Services */
 import { ResponseService } from "./modules/response/services"
 import { AutobanService } from "./modules/autoban/services"
+import { JobAutomodService } from "./modules/jobs/services"
 
 /** Groups */
 import { responseGroup } from "./modules/response/groups"
@@ -24,7 +25,7 @@ const group = new CommandGroup({
 })
 
 const bot = new Bot({
-  services: [ResponseService, AutobanService],
+  services: [ResponseService, AutobanService, JobAutomodService],
   adapter,
   group
 })
