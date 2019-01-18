@@ -6,7 +6,8 @@
   "author": "Enitoni <enitoni@email.com>",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "start:prod": "git pull && yarn && yarn start"
   },
   "dependencies": {
     "@enitoni/gears": "^2.3.3",
