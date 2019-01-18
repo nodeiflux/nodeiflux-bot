@@ -4,7 +4,7 @@ import { Message } from "discord.js"
 import { isAdmin } from "../../admin/helper"
 import { getBanNotifyEmbed } from "../helpers"
 
-const storage = new JSONStorage<string[]>("autobans", [])
+const storage = new JSONStorage<string[]>("autobans.json", [])
 
 export class AutobanService extends Service {
   public async serviceDidInitialize() {
