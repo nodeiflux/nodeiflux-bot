@@ -6,4 +6,4 @@ USER node
 
 COPY . /app/
 
-CMD [ "node", "./dist/src/index.js" ]
+CMD [ "npm", "start" ]
