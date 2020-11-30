@@ -1,5 +1,5 @@
 import { Middleware } from "@enitoni/gears-discordjs"
-import { RichEmbed } from "discord.js"
+import { MessageEmbed } from "discord.js"
 import { ERROR_COLOR } from "../../../constants"
 import { PermissionError } from "../classes/PermissionError"
 import { UsageError } from "../classes"
@@ -10,10 +10,10 @@ export const handleError: Middleware = async (context, next) => {
   try {
     await next()
   } catch (error) {
-    const embed = new RichEmbed({
+    const embed = new MessageEmbed({
       color: ERROR_COLOR,
       title: "Oops, an unknown error occured",
-      description: error.message || error
+      description: error.message || error,
     })
 
     if (error instanceof PermissionError) {

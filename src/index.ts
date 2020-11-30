@@ -1,5 +1,5 @@
-import { Adapter, CommandGroup } from "@enitoni/gears-discordjs"
-import { Bot, matchPrefixes } from "@enitoni/gears"
+import { Bot, Adapter, CommandGroup } from "@enitoni/gears-discordjs"
+import { matchPrefixes } from "@enitoni/gears"
 import * as config from "../config.json"
 
 /** Middleware */
@@ -16,28 +16,27 @@ import { autobanGroup } from "./modules/autoban/groups"
 import { aboutCommand } from "./modules/core/commands"
 
 const adapter = new Adapter({
-  token: config.discord.token
+  token: config.discord.token,
 })
 
-const group = new CommandGroup({
-  matcher: matchPrefixes("!"),
-  middleware: [handleError],
-  commands: [responseGroup, autobanGroup, aboutCommand]
-})
+const group = new CommandGroup()
+  .match(matchPrefixes("!"))
+  .use(handleError)
+  .setCommands(responseGroup, autobanGroup, aboutCommand)
 
 const bot = new Bot({
   services: [ResponseService, AutobanService, JobAutomodService],
+  commands: [group],
   adapter,
-  group
 })
 
-bot.on("error", err => {
+bot.on("error", (err) => {
   console.log("Error", err)
 })
 
 async function init() {
   await bot.start()
-  await bot.client.user.setActivity("use !about or !r help")
+  await bot.client.user?.setActivity("use !about or !r help")
 
   console.info("Bot running.")
 }

@@ -1,4 +1,4 @@
-import { RichEmbed } from "discord.js"
+import { MessageEmbed } from "discord.js"
 import { PRIMARY_COLOR } from "../../../constants"
 
 const message = `
@@ -15,14 +15,14 @@ If you have any questions, feel free to contact a mod. Thank you.
 `
 
 export const getJobHelpEmbed = (content: string) =>
-  new RichEmbed({
+  new MessageEmbed({
     color: PRIMARY_COLOR,
     title: "Hi there!",
     description: message,
     fields: [
       {
         name: "Your message",
-        value: content
-      }
-    ]
+        value: content,
+      },
+    ],
   })

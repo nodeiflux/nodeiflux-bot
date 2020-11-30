@@ -3,6 +3,7 @@
     "strict": true,
     "lib": ["esnext"],
     "target": "es6",
+    "moduleResolution": "node",
     "resolveJsonModule": true
   }
 }

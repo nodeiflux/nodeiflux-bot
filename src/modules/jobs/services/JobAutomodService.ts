@@ -7,7 +7,7 @@ const channelId = "426384543818448896"
 
 export class JobAutomodService extends Service {
   public async serviceDidInitialize() {
-    this.bot.client.on("message", m => this.handleMessage(m))
+    this.bot.client.on("message", (m) => this.handleMessage(m))
   }
 
   private async handleMessage(message: Message) {
@@ -16,7 +16,7 @@ export class JobAutomodService extends Service {
     if (channel.id !== channelId) return
     if (!RegExp(regex).test(content)) {
       await message.delete()
-      await message.member.user.send({ embed: getJobHelpEmbed(content) })
+      await message.member?.user.send({ embed: getJobHelpEmbed(content) })
     }
   }
 }
