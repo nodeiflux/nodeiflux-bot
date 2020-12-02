@@ -14,9 +14,16 @@ import { JobAutomodService } from "./modules/jobs/services"
 import { responseGroup } from "./modules/response/groups"
 import { autobanGroup } from "./modules/autoban/groups"
 import { aboutCommand } from "./modules/core/commands"
+import { Intents } from "discord.js"
+
+const intents = new Intents(Intents.NON_PRIVILEGED)
+
+intents.add(Intents.FLAGS.GUILD_MEMBERS)
+intents.remove(Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.DIRECT_MESSAGE_TYPING)
 
 const adapter = new Adapter({
   token: config.discord.token,
+  ws: { intents },
 })
 
 const group = new CommandGroup()
