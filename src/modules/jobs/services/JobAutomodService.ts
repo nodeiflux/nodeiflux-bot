@@ -14,7 +14,7 @@ export class JobAutomodService extends Service {
     const { content, channel } = message
 
     if (channel.id !== channelId) return
-    if (!RegExp(regex).test(content)) {
+    if (!RegExp(regex).test(content.toUpperCase())) {
       await message.delete()
       await message.member?.user.send({ embed: getJobHelpEmbed(content) })
     }
