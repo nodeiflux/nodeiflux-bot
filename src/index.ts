@@ -14,12 +14,9 @@ import {
 import { logger, channelLog } from "./features/log.js";
 // import codeblock from './features/codeblock';
 import jobsMod, { resetJobCacheCommand } from "./features/jobs-moderation.js";
-import { resumeResources } from "./features/resume.js";
-import { lookingForGroup } from "./features/looking-for-group.js";
 import autoban from "./features/autoban.js";
 import commands from "./features/commands.js";
 import setupStats from "./features/stats.js";
-import emojiMod from "./features/emojiMod.js";
 import promotionThread from "./features/promotion-threads.js";
 import autothread, { cleanupThreads } from "./features/autothread.js";
 import voiceActivity from "./features/voice-activity.js";
@@ -31,14 +28,12 @@ import { CHANNELS, initCachedChannels } from "./constants/channels.js";
 import { scheduleTask } from "./helpers/schedule.js";
 import { discordToken, isProd } from "./helpers/env.js";
 import { registerCommand, deployCommands } from "./helpers/deploy-commands.js";
-import resumeReviewPdf from "./features/resume-review.js";
 import troll from "./features/troll.js";
 import { modActivity } from "./features/mod-activity.js";
 import {
   debugEventButtonHandler,
   debugEvents,
 } from "./features/debug-events.js";
-import { recommendBookCommand } from "./features/book-list.js";
 import { mdnSearch } from "./features/mdn.js";
 import "./server.js";
 
@@ -58,7 +53,6 @@ export const bot = new Client({
 });
 
 registerCommand(resetJobCacheCommand);
-registerCommand(recommendBookCommand);
 registerCommand(mdnSearch);
 
 if (!isProd()) {
@@ -189,7 +183,6 @@ setupStats(bot);
 addHandler("*", [
   commands,
   autoban,
-  emojiMod,
   tsPlaygroundLinkShortener,
   troll,
 ]);
@@ -208,13 +201,10 @@ addHandler(
 const threadChannels = [CHANNELS.helpJs, CHANNELS.helpThreadsReact];
 addHandler(threadChannels, autothread);
 
-addHandler(CHANNELS.resumeReview, resumeReviewPdf);
 
 bot.on("ready", () => {
   deployCommands(bot);
   jobsMod(bot);
-  resumeResources(bot);
-  lookingForGroup(bot);
   voiceActivity(bot);
   modActivity(bot);
   debugEventButtonHandler(bot);

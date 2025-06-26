@@ -1128,7 +1128,7 @@ _ _
             type: EmbedType.Rich,
             description: dedent`
               - Your resume and interview performance are more important than your projects.
-              - If you struggle to get interviews, polish your resume. You may submit your resume in #resume-review for review.
+              - If you struggle to get interviews, polish your resume.
               - If you get invited to interviews reliably but constantly get rejected/ghosted afterward, practice interviewing.
               - Job descriptions are like a wishlist. It is common for a candidate to not tick every checkbox but still get the job. Just apply for the position regardless.
               - Junior remote jobs are very rare. For more, see \`!remote\`.
