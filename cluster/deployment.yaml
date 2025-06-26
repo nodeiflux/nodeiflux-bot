@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reactibot-deployment
+  name: discord-bot-deployment
 spec:
   selector:
     matchLabels:
-      app: reactibot
+      app: discord-bot
   replicas: 1
   template:
     metadata:
       labels:
-        app: reactibot
+        app: discord-bot
     spec:
       containers:
-        - name: reactibot
+        - name: discord-bot
           image: $(IMAGE)
           env:
             - name: ENVIRONMENT
@@ -21,40 +21,40 @@ spec:
             - name: DISCORD_HASH
               valueFrom:
                 secretKeyRef:
-                  name: reactibot-env
+                  name: discord-bot-env
                   key: DISCORD_HASH
             - name: GH_READ_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: reactibot-env
+                  name: discord-bot-env
                   key: GH_READ_TOKEN
             - name: AMPLITUDE_KEY
               valueFrom:
                 secretKeyRef:
-                  name: reactibot-env
+                  name: discord-bot-env
                   key: AMPLITUDE_KEY
             - name: DISCORD_PUBLIC_KEY
               valueFrom:
                 secretKeyRef:
-                  name: reactibot-env
+                  name: discord-bot-env
                   key: DISCORD_PUBLIC_KEY
             - name: DISCORD_APP_ID
               valueFrom:
                 secretKeyRef:
-                  name: reactibot-env
+                  name: discord-bot-env
                   key: DISCORD_APP_ID
             - name: GUILD_ID
               valueFrom:
                 secretKeyRef:
-                  name: reactibot-env
+                  name: discord-bot-env
                   key: GUILD_ID
             - name: OPENAI_KEY
               valueFrom:
                 secretKeyRef:
-                  name: reactibot-env
+                  name: discord-bot-env
                   key: OPENAI_KEY
             - name: REACTIBOT_API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: reactibot-env
+                  name: discord-bot-env
                   key: REACTIBOT_API_KEY

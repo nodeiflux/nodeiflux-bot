@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: reactibot-ingress
+  name: discord-bot-ingress
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
@@ -12,17 +12,17 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: api.reactiflux.com
+    - host: your-domain.example.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: reactibot-service
+                name: discord-bot-service
                 port:
                   number: 80
   tls:
     - hosts:
-        - api.reactiflux.com
-      secretName: reactibot-tls-cert
+        - your-domain.example.com
+      secretName: discord-bot-tls-cert
