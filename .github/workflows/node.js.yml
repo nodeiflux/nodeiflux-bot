@@ -84,8 +84,8 @@ jobs:
         # I don't remember why that was valuable but I'm afraid to remove it
         run: |
           kubectl diff -k . || echo \n
-          kubectl delete secret reactibot-env || echo \n
-          kubectl create secret generic reactibot-env \
+          kubectl delete secret nodeibot-env || echo \n
+          kubectl create secret generic nodeibot-env \
             --from-literal=DISCORD_HASH=${{ secrets.DISCORD_HASH }} \
             --from-literal=DISCORD_PUBLIC_KEY=${{ secrets.DISCORD_PUBLIC_KEY }} \
             --from-literal=DISCORD_APP_ID=${{ secrets.DISCORD_APP_ID }} \

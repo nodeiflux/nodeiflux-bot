@@ -65,10 +65,10 @@ const cachedChannels: Record<string, Record<string, TextChannel>> = {
 };
 
 export const initCachedChannels = async (bot: Client) => {
-  const reactiflux = await bot.guilds.fetch(guildId);
+  const nodejsDiscord = await bot.guilds.fetch(guildId);
   const channels = await Promise.all(
     [CHANNELS.botLog, CHANNELS.modLog, CHANNELS.jobsLog].map((channelId) =>
-      reactiflux.channels.fetch(channelId),
+      nodejsDiscord.channels.fetch(channelId),
     ),
   );
 

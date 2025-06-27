@@ -1,6 +1,6 @@
 # Reactibot
 
-Useful saved commands, auto-moderation tools, and more, for the Reactiflux server.
+Useful saved commands, auto-moderation tools, and more, for the Node.js Discord server.
 
 ## Contributing
 
@@ -14,10 +14,10 @@ This is dumb and I hate it but it's how the tools work together.
 
 New secrets need to be added in a bunch of different places in order to work in production:
 
-- the GitHub [secrets config for Reactibot in settings](https://github.com/reactiflux/reactibot/settings/secrets/actions)
-- [env.ts](https://github.com/reactiflux/reactibot/blob/main/src/helpers/env.ts) to load it from the environment (please do not freely use `process.env`)
-- [our deployment action](https://github.com/reactiflux/reactibot/blob/main/.github/workflows/node.js.yml#L88), under the Kubernetes secret creation step
-- [the Kubernetes deployment config](https://github.com/reactiflux/reactibot/blob/main/cluster/deployment.yaml#L18)
+- the GitHub [secrets config for Nodeibot in settings](https://github.com/nodeiflux/nodeibot/settings/secrets/actions)
+- [env.ts](https://github.com/nodeiflux/nodeibot/blob/main/src/helpers/env.ts) to load it from the environment (please do not freely use `process.env`)
+- [our deployment action](https://github.com/nodeiflux/nodeibot/blob/main/.github/workflows/node.js.yml#L88), under the Kubernetes secret creation step
+- [the Kubernetes deployment config](https://github.com/nodeiflux/nodeibot/blob/main/cluster/deployment.yaml#L18)
 
 ## Testing deployment
 

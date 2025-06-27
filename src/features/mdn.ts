@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from "discord.js";
 import { SlashCommand } from "../helpers/discord.js";
 
 const SOURCE_LINK =
-  "-# [source](<https://github.com/reactiflux/reactibot/blob/main/src/features/mdn.ts>)";
+  "-# [source](<https://github.com/nodeiflux/nodeibot/blob/main/src/features/mdn.ts>)";
 
 export const mdnSearch: SlashCommand = {
   command: new SlashCommandBuilder()
