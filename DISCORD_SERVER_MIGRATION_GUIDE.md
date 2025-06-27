@@ -5,6 +5,7 @@ This document identifies all hardcoded Discord server-specific values that need 
 ## Environment Variables
 
 **File: `src/helpers/env.ts`**
+
 - Set `GUILD_ID` environment variable to your target Discord server ID
 
 ## Channel IDs
@@ -12,7 +13,9 @@ This document identifies all hardcoded Discord server-specific values that need 
 **File: `src/constants/channels.ts`**
 
 ### Production Channels (Lines 25-44)
+
 All channel IDs in the `PRODUCTION_CHANNELS` object need to be replaced:
+
 - `helpReact: "103696749012467712"`
 - `helpThreadsReact: "902647189120118794"`
 - `helpJs: "565213527673929729"`
@@ -33,7 +36,9 @@ All channel IDs in the `PRODUCTION_CHANNELS` object need to be replaced:
 - `vcLog: "1237161125473161347"`
 
 ### Local Development Channels (Lines 4-23)
+
 All channel IDs in the `LOCAL_CHANNELS` object need to be replaced with your test server channels:
+
 - `helpReact: "926931785219207301"`
 - `helpThreadsReact: "950790460857794620"`
 - `helpJs: "950790460857794620"`
@@ -58,20 +63,25 @@ All channel IDs in the `LOCAL_CHANNELS` object need to be replaced with your tes
 **File: `src/constants/channels.ts`**
 
 ### Production Roles (Lines 54-59)
+
 All role IDs in the `PRODUCTION_ROLES` object need to be replaced:
+
 - `starHelper: "852537681346691102"`
 - `mvp: "340332804611244043"`
 - `moderator: "102870499406647296"`
 - `admin: "103261043291082752"`
 
 ### Local Development Roles (Lines 48-53)
+
 All role IDs in the `LOCAL_ROLES` object need to be replaced:
+
 - `starHelper: "932749426785665136"`
 - `mvp: "932749517290344488"`
 - `moderator: "916797467918471190"`
 - `admin: "916797467918471190"`
 
 **File: `src/constants.ts`**
+
 - Line 1: `modRoleId = "&102870499406647296"` - Replace with your server's moderator role ID
 
 ## Hardcoded Channel Mentions in Messages
@@ -79,7 +89,9 @@ All role IDs in the `LOCAL_ROLES` object need to be replaced:
 **File: `src/features/scheduled-messages.ts`**
 
 ### Lines 101-112 - Help Channel References
+
 Replace all hardcoded channel mentions with your server's channel IDs:
+
 ```
 <#565213527673929729> For questions about pure Javascript problems.
 <#105765765117935616> For questions about CSS or other visual problems.
@@ -97,6 +109,7 @@ Replace all hardcoded channel mentions with your server's channel IDs:
 Replace all Reactiflux-specific URLs and references throughout the codebase:
 
 ### URLs to Replace
+
 - `https://www.reactiflux.com/conduct` → Your server's code of conduct
 - `https://www.reactiflux.com/promotion` → Your server's promotion guidelines
 - `https://www.reactiflux.com/jobs` → Your server's jobs page
@@ -105,6 +118,7 @@ Replace all Reactiflux-specific URLs and references throughout the codebase:
 - `hello@reactiflux.com` → Your server's contact email
 
 ### Files Containing These References
+
 - `src/features/commands.ts` (multiple instances)
 - `src/features/scheduled-messages.ts` (multiple instances)
 - `src/features/jobs-moderation.ts` (guidance URL)
@@ -113,30 +127,31 @@ Replace all Reactiflux-specific URLs and references throughout the codebase:
 
 When creating channels in your new server, ensure they serve the same purposes:
 
-| Channel Constant | Purpose |
-|-----------------|---------|
-| `helpReact` | React-specific help questions |
+| Channel Constant   | Purpose                        |
+| ------------------ | ------------------------------ |
+| `helpReact`        | React-specific help questions  |
 | `helpThreadsReact` | React help with thread support |
-| `helpJs` | Pure JavaScript questions |
-| `random` | General discussion |
-| `gaming` | Gaming discussions |
-| `thanks` | Appreciation messages |
-| `jobBoard` | Job postings |
-| `resumeReview` | Resume feedback |
-| `lookingForGroup` | Finding project partners |
-| `jobsLog` | Job posting moderation logs |
-| `events` | Server events |
-| `iBuiltThis` | Project showcases |
-| `iWroteThis` | Article/blog sharing |
-| `twitterFeed` | Twitter feed integration |
-| `techReadsAndNews` | Tech news sharing |
-| `modLog` | Moderation activity logs |
-| `botLog` | Bot activity logs |
-| `vcLog` | Voice channel activity logs |
+| `helpJs`           | Pure JavaScript questions      |
+| `random`           | General discussion             |
+| `gaming`           | Gaming discussions             |
+| `thanks`           | Appreciation messages          |
+| `jobBoard`         | Job postings                   |
+| `resumeReview`     | Resume feedback                |
+| `lookingForGroup`  | Finding project partners       |
+| `jobsLog`          | Job posting moderation logs    |
+| `events`           | Server events                  |
+| `iBuiltThis`       | Project showcases              |
+| `iWroteThis`       | Article/blog sharing           |
+| `twitterFeed`      | Twitter feed integration       |
+| `techReadsAndNews` | Tech news sharing              |
+| `modLog`           | Moderation activity logs       |
+| `botLog`           | Bot activity logs              |
+| `vcLog`            | Voice channel activity logs    |
 
 ## Required Permissions
 
 Ensure the bot has the following permissions in your Discord server:
+
 - Read Messages/View Channels
 - Send Messages
 - Manage Messages
@@ -148,6 +163,7 @@ Ensure the bot has the following permissions in your Discord server:
 ## Testing Checklist
 
 After updating all values:
+
 1. ✅ Bot connects to your server
 2. ✅ All channel references work
 3. ✅ Role-based permissions function correctly

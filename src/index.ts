@@ -180,12 +180,7 @@ logger.add({ id: "modLog", logger: channelLog(bot, CHANNELS.modLog) });
 setupStats(bot);
 
 // common
-addHandler("*", [
-  commands,
-  autoban,
-  tsPlaygroundLinkShortener,
-  troll,
-]);
+addHandler("*", [commands, autoban, tsPlaygroundLinkShortener, troll]);
 
 addHandler(
   [
@@ -200,7 +195,6 @@ addHandler(
 
 const threadChannels = [CHANNELS.helpJs, CHANNELS.helpThreadsReact];
 addHandler(threadChannels, autothread);
-
 
 bot.on("ready", () => {
   deployCommands(bot);
